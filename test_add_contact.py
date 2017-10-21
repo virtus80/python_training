@@ -17,7 +17,7 @@ class test_add_contact(unittest.TestCase):
     
     def test_test_add_contact(self):
         wd = self.wd
-        self.open_home_page(wd)
+
         self.login(wd, login="admin", password="secret")
         self.open_contacts_page(wd)
         self.create_contact(wd, Contact(firstname="Vasyly", lastname="Petrov", nickname="vasya26", company="Google",
@@ -67,6 +67,7 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_link_text("add new").click()
 
     def login(self, wd, login, password):
+        self.open_home_page(wd)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").send_keys("\\undefined")
         wd.find_element_by_name("user").click()
