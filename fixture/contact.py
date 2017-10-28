@@ -14,6 +14,31 @@ class ContactHelper:
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
+    def delete_first_contact(self):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_first_contact()
+        # click delete button
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        # submit deletion
+        wd.switch_to_alert().accept()
+
+    def edit_first_contact(self, contact):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.init_editing()
+        self.fill_contact_form(contact)
+        # submit contact edition
+        wd.find_element_by_name("update").click()
+
+    def select_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+
+    def init_editing(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//img[@title='Edit']").click()
+
     def fill_contact_form(self, contact):
         wd = self.app.wd
         # filling firstname
@@ -46,24 +71,7 @@ class ContactHelper:
         wd.find_element_by_name("email").send_keys(contact.email)
 
 
-    def delete_first_contact(self):
-        wd = self.app.wd
-        self.app.open_home_page()
-        # select first contact
-        wd.find_element_by_name("selected[]").click()
-        # click delete button
-        wd.find_element_by_xpath("//input[@value='Delete']").click()
-        # submit deletion
-        wd.switch_to_alert().accept()
 
-    def edit_first_contact(self, contact):
-        wd = self.app.wd
-        self.app.open_home_page()
-        # click edit button
-        wd.find_element_by_xpath("//img[@title='Edit']").click()
-        self.fill_contact_form(contact)
-        # submit contact edition
-        wd.find_element_by_name("update").click()
 
 
 
