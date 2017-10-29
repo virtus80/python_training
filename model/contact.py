@@ -1,6 +1,6 @@
 class Contact:
 
-    def __init__(self, firstname, lastname, nickname, company, address, mobile_phone, email):
+    def __init__(self, firstname=None, lastname=None, nickname=None, company=None, address=None, mobile_phone=None, email=None):
         self.firstname = firstname
         self.lastname = lastname
         self.nickname = nickname
