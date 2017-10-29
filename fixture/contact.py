@@ -48,6 +48,10 @@ class ContactHelper:
         self.app.change_field_value("mobile", contact.mobile_phone)
         self.app.change_field_value("email", contact.email)
 
+    def count(self):
+        wd = self.app.wd
+        self.app.open_home_page()
+        return len(wd.find_elements_by_name("selected[]"))
 
 
 
