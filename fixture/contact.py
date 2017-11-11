@@ -1,5 +1,6 @@
 from model.contact import Contact
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -14,7 +15,7 @@ class ContactHelper:
         self.open_contacts_page()
         self.fill_contact_form(contact)
         # submit contact creation
-        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        wd.find_element_by_css_selector("input[name='submit']").click()
         self.app.open_home_page()
         self.contact_cache = None
 
@@ -72,6 +73,7 @@ class ContactHelper:
         return len(wd.find_elements_by_name("selected[]"))
 
     contact_cache = None
+
     def get_contact_list(self):
         if self.contact_cache is None:
             wd = self.app.wd
@@ -81,12 +83,5 @@ class ContactHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("id")
                 firstname = element.find_elements_by_css_selector("td")[2].text
                 lastname = element.find_elements_by_css_selector("td")[1].text
-                self.contact_cache.append(Contact(id = id, firstname = firstname, lastname = lastname))
+                self.contact_cache.append(Contact(id=id, firstname=firstname, lastname=lastname))
         return list(self.contact_cache)
-
-
-
-
-
-
-
