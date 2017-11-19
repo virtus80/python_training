@@ -18,15 +18,15 @@ def random_string_for_address(maxlen):
     return "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 def random_string_for_email(maxlen):
-    symbols = string.ascii_letters*5 + string.digits + string.punctuation
+    symbols = string.ascii_letters*3 + string.digits + "-_#&+"
     return "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 testdata = [Contact(firstname=random_string_for_names("name", 15), lastname=random_string_for_names("surname", 20),
             nickname=random_string_for_address(20), company=random_string_for_names("company", 30),
             address=random_string_for_address(60), homephone=random_string_for_phones(14),
             workphone=random_string_for_phones(14), mobilephone=random_string_for_phones(14),
-            secondaryphone=random_string_for_phones(14),email=random_string_for_email(30) + "@" + random_string_for_email(10) +
-            "." + random_string_for_email(3)) for i in range(5)]
+            secondaryphone=random_string_for_phones(14),email=random_string_for_email(30) + "@" + random.choice(["mail.ru", "gmail.com",
+            "yandex.ru", "i.ua", "ukr.net"])) for i in range(3)]
 
 @pytest.mark.parametrize("contact", testdata, ids=[repr(x) for x in testdata])
 def test_add_contact(app, contact):
