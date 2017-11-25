@@ -23,7 +23,7 @@ for o, a in opts:
         f = a
 
 def random_string_for_names(prefix, maxlen):
-    symbols = string.ascii_letters + "'" + " "
+    symbols = string.ascii_letters + " "
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 def random_string_for_phones(maxlen):
