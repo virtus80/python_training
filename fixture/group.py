@@ -110,3 +110,4 @@ class GroupHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.group_cache.append(Group(name=text, id=id))
         return list(self.group_cache)
+

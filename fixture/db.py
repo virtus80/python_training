@@ -39,5 +39,11 @@ class DbFixture:
             cursor.close()
         return list
 
+    def clean_group(self, group):
+        return Group(id=group.id, name=group.name.strip())
+
+    def clean_contact(self, contact):
+        return Contact(id=contact.id, firstname=contact.firstname.strip(), lastname=contact.lastname.strip())
+
     def destroy(self):
         self.connection.close()
