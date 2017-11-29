@@ -101,3 +101,5 @@ ENV/
 # mypy
 .mypy_cache/
 data/contacts.json
+data/contacts.json
+data/contacts.json

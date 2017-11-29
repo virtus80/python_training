@@ -1,4 +1,5 @@
 from random import randrange
+from model.contact import Contact
 import re
 
 
@@ -24,6 +25,16 @@ def test_contact_attributes_on_home_page(app):
     assert contact_from_home_page.address == clear_address_like_on_homepage(contact_from_edit_page.address)
     assert contact_from_home_page.all_emails_from_homepage == merge_emails_like_on_homepage(contact_from_edit_page)
     assert contact_from_home_page.all_phones_from_homepage == merge_phones_like_on_homepage(contact_from_edit_page)
+
+def test_contact_attributes_on_home_page_with_db(app, db):
+    contacts_from_home_page = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+    contacts_from_db = sorted(db.get_contact_list(), key=Contact.id_or_max)
+    assert list(map(lambda x: x.firstname, contacts_from_home_page)) == list(map(lambda x: x.firstname.strip(), contacts_from_db))
+    assert list(map(lambda x: x.lastname, contacts_from_home_page)) == list(map(lambda x: x.lastname.strip(), contacts_from_db))
+    assert list(map(lambda x: x.address, contacts_from_home_page)) == list(map(lambda x: x.address.strip(), contacts_from_db))
+    assert list(map(lambda x: x.all_emails_from_homepage, contacts_from_home_page)) == list(map(merge_emails_like_on_homepage, contacts_from_db))
+    assert list(map(lambda x: x.all_phones_from_homepage.replace("\n\n", "\n"), contacts_from_home_page)) == list(map(merge_phones_like_on_homepage, contacts_from_db))
+
 
 def clear_phones_like_on_homepage(s):
     return re.sub("[() -]", "", s)
