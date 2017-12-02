@@ -69,10 +69,22 @@ class ContactHelper:
         self.contact_cache = None
 
     def view_contact_by_index(self, index):
-        wd = self.app.wd
         self.app.open_home_page()
         self.init_viewing(index)
         self.app.open_home_page()
+
+    def add_contact_to_group(self, contact, group):
+        self.app.open_home_page()
+        self.select_contact_by_id(contact.id)
+        self.select_group_for_addition_to_contact(group.id)
+        self.click_to_add_contact_to_group()
+
+    def remove_contact_from_group(self, contact, group):
+        self.app.open_home_page()
+        self.select_group_for_removing_contact(group.id)
+        self.select_contact_by_id(contact.id)
+        self.click_to_remove_contact_from_group()
+
 
     def select_first_contact(self):
         wd = self.app.wd
@@ -85,6 +97,22 @@ class ContactHelper:
     def select_contact_by_id(self, id):
         wd = self.app.wd
         wd.find_element_by_css_selector("input[id='%s']" % id).click()
+
+    def select_group_for_addition_to_contact(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("select[name='to_group'] option[value='%s']" % id).click()
+
+    def select_group_for_removing_contact(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("select[name='group'] option[value='%s']" % id).click()
+
+    def click_to_add_contact_to_group(self):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[name='add']").click()
+
+    def click_to_remove_contact_from_group(self):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[name='remove']").click()
 
     def init_editing(self, id):
         wd = self.app.wd
