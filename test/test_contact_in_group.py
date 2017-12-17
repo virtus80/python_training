@@ -38,4 +38,3 @@ def test_remove_contact_from_group(app, db):
     contact = random.choice(contacts)
     app.contact.remove_contact_from_group(contact, group)
     assert contact in conn.get_contacts_not_in_group(group)
-    
