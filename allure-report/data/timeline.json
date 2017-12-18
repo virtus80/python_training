@@ -1,0 +1,61 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "Sasha-PC",
+    "children" : [ {
+      "name" : "6940-MainThread",
+      "children" : [ {
+        "name" : "test_add_group[None:nameY;headerwz 0AIZ\"seV GevP;footerCZ&p>j$VcLx  3]",
+        "uid" : "9783332fcc692d37",
+        "parentUid" : "f9cdad0648bd5c8e2868695f3449fecf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1513624321070,
+          "stop" : 1513624322176,
+          "duration" : 1106
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_add_group[None:nameIE _u;headerk.;footerVtza@T3x<YN.r f]",
+        "uid" : "523d680f2c9bdfde",
+        "parentUid" : "f9cdad0648bd5c8e2868695f3449fecf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1513624319961,
+          "stop" : 1513624321068,
+          "duration" : 1107
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_add_group[None:name;header G,)KN,f|cK;footer[]",
+        "uid" : "733a82c093ea2d9a",
+        "parentUid" : "f9cdad0648bd5c8e2868695f3449fecf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1513624322178,
+          "stop" : 1513624323194,
+          "duration" : 1016
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_add_group[None:;;]",
+        "uid" : "ebff35a35752303",
+        "parentUid" : "f9cdad0648bd5c8e2868695f3449fecf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1513624313390,
+          "stop" : 1513624319959,
+          "duration" : 6569
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f9cdad0648bd5c8e2868695f3449fecf"
+    } ],
+    "uid" : "f901d9823877ea2903a9ddd32eeebb4b"
+  } ]
+}
